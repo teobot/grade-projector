@@ -1,7 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+
+// css imports
+import "semantic-ui-css/semantic.min.css";
+import './css/index.css';
+
+// screen imports
+import App from './screens/App';
+
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
