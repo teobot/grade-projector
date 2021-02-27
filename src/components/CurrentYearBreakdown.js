@@ -1,27 +1,33 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 
 // component imports
-import { Container, Table, Divider } from "semantic-ui-react";
+import { Table } from "semantic-ui-react";
 
 // function imports
 import {
   ReturnYearWorth,
   AverageToGetFirst,
   TotalComplete,
-  CalculateAverageThirdYearGrade,
 } from "../functions/functions";
 
 // data imports
 import { DataContext } from "../data/data";
 
 export default function CurrentYearBreakdown() {
+  // This method displays a table showing the current year broken down 
+
   // context imports
-  const { unitState, UnitDispatcher, yearState, YearDispatcher } = useContext(
-    DataContext
-  );
-  
+  const { yearState } = useContext(DataContext);
+
   return (
-    <Table inverted color="green" celled fixed textAlign="center" className="CustomTable">
+    <Table
+      inverted
+      color="green"
+      celled
+      fixed
+      textAlign="center"
+      className="CustomTable"
+    >
       <Table.Header>
         <Table.Row>
           <Table.HeaderCell>Total To Get First</Table.HeaderCell>

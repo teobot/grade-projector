@@ -137,10 +137,6 @@ export default () => {
   //   DataContext
   // );
 
-  // useEffect(() => {
-
-  // }, []);
-
   useEffect(() => {
     YearDispatcher({
       type: "set_year3_grade",

@@ -1,16 +1,12 @@
 import React, { useContext } from "react";
 
 // component imports
-import { Container, Table, Input } from "semantic-ui-react";
+import { Table, Input } from "semantic-ui-react";
 
-import cookieHelper from "../helpers/cookieHelper"
+import cookieHelper from "../helpers/cookieHelper";
 
 // function imports
-import {
-  ReturnYearWorth,
-  AverageToGetFirst,
-  TotalComplete,
-} from "../functions/functions";
+import { ReturnYearWorth } from "../functions/functions";
 
 // data imports
 import { DataContext } from "../data/data";
@@ -19,9 +15,7 @@ export default function YearlyGradeTable() {
   // This table displays the yearly breakdown
 
   // context imports
-  const { unitState, UnitDispatcher, yearState, YearDispatcher } = useContext(
-    DataContext
-  );
+  const { yearState, YearDispatcher } = useContext(DataContext);
 
   const GenerateYearlyBreakdown = () => {
     let yearArray = [];
@@ -32,7 +26,7 @@ export default function YearlyGradeTable() {
   };
 
   const ChangeYearWorth = (event, data, year) => {
-    cookieHelper.setCookie(`${year.yearDispatchName}Worth`, data.value)
+    cookieHelper.setCookie(`${year.yearDispatchName}Worth`, data.value);
     YearDispatcher({
       type: `set_${year.yearDispatchName}_worth`,
       payload: parseInt(data.value),
@@ -40,7 +34,7 @@ export default function YearlyGradeTable() {
   };
 
   const ChangeYearGrade = (event, data, year) => {
-    cookieHelper.setCookie(`${year.yearDispatchName}Grade`, data.value)
+    cookieHelper.setCookie(`${year.yearDispatchName}Grade`, data.value);
     YearDispatcher({
       type: `set_${year.yearDispatchName}_grade`,
       payload: data.value ? parseInt(data.value) : 0,

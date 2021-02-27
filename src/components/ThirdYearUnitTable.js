@@ -1,28 +1,23 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 
 // component imports
 import { Table, Input } from "semantic-ui-react";
 
 // function imports
-import {
-  ReturnYearWorth,
-  AverageToGetFirst,
-  TotalComplete,
-  CalculateAverageThirdYearGrade,
-} from "../functions/functions";
+import { AverageToGetFirst, TotalComplete } from "../functions/functions";
 
-import cookieHelper from "../helpers/cookieHelper"
+import cookieHelper from "../helpers/cookieHelper";
 
 // data imports
 import { DataContext } from "../data/data";
 
 export default function ThirdYearUnitTable() {
+  
   // context imports
-  const { unitState, UnitDispatcher, yearState, YearDispatcher } = useContext(
-    DataContext
-  );
+  const { unitState, UnitDispatcher, yearState } = useContext(DataContext);
 
   const GenerateUnitRows = () => {
+    // This functions converts a object to a array of units
     let unitArray = [];
     Object.keys(unitState).forEach(function (key) {
       unitArray.push(unitState[key]);
@@ -47,7 +42,7 @@ export default function ThirdYearUnitTable() {
   };
 
   const ChangeUnitGrade = (event, data, unit) => {
-    cookieHelper.setCookie(unit.dispatch_name, data.value)
+    cookieHelper.setCookie(unit.dispatch_name, data.value);
     UnitDispatcher({
       type: `set_${unit.dispatch_name}_grade`,
       payload: data.value ? parseInt(data.value) : 0,

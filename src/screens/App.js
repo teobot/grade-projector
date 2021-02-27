@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 
 // css import
-import "../css/App.css";
+// import "../css/App.css";
 
 // semantic imports
 import { Container, Divider } from "semantic-ui-react";
